@@ -1,0 +1,44 @@
+🦟 Mosquito Manifesto: Simulated Voter Awareness System
+Core Concept:
+For every logged event (e.g., scandals, rallies, media pieces, debates), the system must evaluate a voter's awareness and perception of it. This enables more accurate simulation of decision-making and allows the LLM to simulate a voter's reasoning based on their world view, not the omniscient game state.
+
+✅ Implementation Idea: Voter Awareness Heuristic
+Function: isEventKnownToVoter(event, voterProfile) → { awarenessLevel, interpretation, influenceOnVote }
+
+Inputs:
+
+event.impactScore: how "loud" the event is (e.g., media reach, controversy level)
+
+event.type: rally, scandal, article, debate, etc.
+
+event.demographics: intended or affected audience
+
+voterProfile: includes age, job, location, party leanings, media habits, education, language, etc.
+
+Outputs:
+
+awarenessLevel: unknown / vague impression / knows but doesn't care / strongly aware
+
+interpretation: how the voter interprets the event (can vary drastically)
+
+influenceOnVote: none / slight / moderate / decisive
+
+🧠 LLM Role: Voter Mental Model Simulation
+Use the voter's profile + known event list to "speak as the voter"
+
+The LLM should only reference what the voter would plausibly know or misinterpret
+
+If an event is unknown, the LLM must avoid referencing it during reasoning
+
+🔧 Mechanism Ideas
+Weighted exposure formula: awarenessScore = impactScore × alignmentFactor × relevanceFactor × mediaExposure
+
+alignmentFactor: matches voter values
+
+relevanceFactor: affects voter's demographic (e.g., teacher-related scandal and voter is a teacher)
+
+mediaExposure: based on voter's media consumption habits
+
+Memory decay over time: if event is old and not reinforced, it's forgotten or distorted
+
+Simulated local gossip/media density: voters in high-social areas may be more exposed regardless of media habits
