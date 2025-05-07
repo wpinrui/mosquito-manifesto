@@ -12,8 +12,12 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.15.12",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
