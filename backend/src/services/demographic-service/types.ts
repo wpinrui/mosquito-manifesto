@@ -1,39 +1,42 @@
-export type Gender = "male" | "female" | "nonbinary";
-export type Ideology = "pro-gov" | "neutral" | "anti-gov";
-export type Education =
-  | "none"
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "postgraduate";
-
-export type PersonalityTrait =
-  | "openness"
-  | "conscientiousness"
-  | "extraversion"
-  | "agreeableness"
-  | "neuroticism";
-
-export interface VoterProfile {
+export type BasicVoter = {
+  // independent variables (raw values)
   age: number;
-  gender: Gender;
-  incomeLevel: number;
-  ideology: Ideology;
+  income: number;
   politicalAwareness: number;
-  education: Education;
-  personalityTraits: Record<PersonalityTrait, number>;
+};
+
+export type DerivedVoter = {
+  // derived by a base distribution skewed by age, income, and political awareness
+  socialism: number;
+  capitalism: number;
+  liberalism: number;
+  conservatism: number;
+  incumbencyBias: number;
+} & BasicVoter;
+
+export interface Distribution {
+  mean: number;
+  std: number;
 }
 
-export interface DemographicDistribution {
-  ageMean: number;
-  ageStd: number;
-  genderDist: Record<Gender, number>;
-  incomeMean: number;
-  incomeStd: number;
-  ideologyDist: Record<Ideology, number>;
-  awarenessMean: number;
-  awarenessStd: number;
-  educationDist: Record<Education, number>;
-  personalityMeans: Record<PersonalityTrait, number>;
-  personalityStds: Record<PersonalityTrait, number>;
+export interface BasicDemographic {
+  ageDistribution: Distribution;
+  incomeDistribution: Distribution;
+  politicalAwarenessDistribution: Distribution;
 }
+
+export enum Direction {
+  Ascending = "asc",
+  Descending = "desc",
+  Flat = "flat",
+}
+
+export type PillarStats = {
+  mean: number;
+  std: number;
+  directions: {
+    age: Direction;
+    income: Direction;
+    awareness: Direction;
+  };
+};
