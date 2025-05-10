@@ -1,5 +1,12 @@
 export type Gender = "male" | "female" | "nonbinary";
-export type Ideology = "pro-gov" | "neutral" | "anti-gov";
+export type Ideology =
+  | "gov-fan"
+  | "opp-fan"
+  | "leans-gov"
+  | "leans-opp"
+  | "leans-incumbent"
+  | "swing-emotional"
+  | "swing-critical";
 export type Education =
   | "none"
   | "primary"
@@ -8,11 +15,11 @@ export type Education =
   | "postgraduate";
 
 export type PersonalityTrait =
-  | "openness"
-  | "conscientiousness"
-  | "extraversion"
-  | "agreeableness"
-  | "neuroticism";
+  | "happiness" // General life satisfaction; higher = vote ruling
+  | "resentment" // Frustration with inequality, elites, or unfair systems
+  | "trust-in-authority" // Belief in institutions, police, government credibility
+  | "desire-for-change" // Feels things should be different; more willing to vote opp
+  | "risk-tolerance"; // Willingness to shake up the system vs prefer stability
 
 export interface VoterProfile {
   age: number;
