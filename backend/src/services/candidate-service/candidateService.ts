@@ -1,28 +1,27 @@
 export const getCandidates = () => {
   return [
     [
-      `Progressive Front (PF) – Candidate: Aisha Malik (Former Civil Servant) [Opposition Party]`,
-      `Party Background: The PF is a moderate opposition party established in 2018 by former civil servants and professionals. It advocates for prudent governance, institutional accountability, and preserving social cohesion while introducing policy reforms. The party emphasizes community stability and sustainable national development.`,
+      `United Civic Alliance (UCA) – Candidate: Janice Wei (Civil Rights Lawyer & Former Law Lecturer) [Opposition Party]`,
+      `Party Background: The UCA is a moderate-progressive opposition party advocating for institutional transparency, civil liberties, and sustainable economic reforms. It appeals to middle-class professionals, younger voters, and those calling for democratic checks and balances.`,
       ``,
-      `Candidate Bio: Aisha Malik, 39, previously served in the Ministry of Finance for over a decade. During her tenure, she led audits and regulatory reviews for public spending programs. She left the civil service to enter politics, citing a desire to improve oversight mechanisms and strengthen checks and balances.`,
+      `Candidate Bio: Janice Wei, 39, is a civil rights lawyer who previously taught public law at a local university. She has represented clients in high-profile constitutional challenges and advised non-profits on data privacy, housing, and labor law reforms.`,
       ``,
-      `Aisha's campaign priorities include tighter fiscal controls, increased parliamentary transparency, and support for families through conservative social welfare reforms. She advocates for local small business incentives, safeguarding national identity, and reinforcing meritocracy in public appointments.`,
+      `Wei has been praised for her clarity on legal reform and her commitment to equitable policy outcomes. However, her limited experience in grassroots engagement and municipal governance has raised questions about her readiness to handle estate-level issues.`,
       ``,
-      `Her platform includes regular constituency dialogues, proposals to limit ministerial discretion in procurement decisions, and structured parental support schemes. She has received endorsements from retired public officers and civic organizations focused on governance integrity.`,
-      `Campaign slogan: “Duty. Integrity. Accountability.”`,
-    ].join("\n"),
+      `Her campaign highlights judicial independence, mental health funding, and public housing transparency. Endorsed by academics, rights groups, and civic-minded youth networks.`,
+      `Campaign slogan: “For Justice, For People.”`,
+    ].join("\n[INDEX:0]"),
 
     [
-      `National Renewal Congress (NRC) – Candidate: Marcus Tay (Media Mogul) [Ruling Party]`,
-      `Party Background: The NRC is a conservative ruling party that formed from the merger of older political factions. It advocates for cultural preservation, state authority, and a pro-business agenda, including policies on immigration and economic growth.`,
+      `Forward Singapore Party (FSP) – Candidate: Adrian Yeo (Former Central Bank Deputy Director & Social Sector Reformer) [Ruling Party]`,
+      `Party Background: The FSP is a centrist ruling party known for long-term planning, technocratic governance, and social pragmatism. It focuses on national resilience, inclusive growth, and a strong public service ethos.`,
       ``,
-      `Candidate Bio: Marcus Tay, 58, is a billionaire media entrepreneur. He founded a media conglomerate with multiple TV, radio, and online properties. The company has previously received regulatory warnings over unbalanced reporting during past election cycles.`,
+      `Candidate Bio: Adrian Yeo, 51, spent 20 years at the Monetary Authority of Singapore, where he led financial stability initiatives and digital banking reforms. After retiring from public service, he co-founded a foundation supporting early childhood education and elderly care programs.`,
       ``,
-      `In 2019, Marcus publicly apologized after internal audits revealed the use of corporate funds to support undisclosed political messaging. The incident led to the resignation of two board members and the imposition of a media compliance bond by the national broadcast authority.`,
-      `In 2022, a former journalist filed a defamation suit alleging wrongful dismissal and editorial interference. The case was settled out of court with confidentiality terms. Regulatory agencies have cited his media outlets for breaching fair coverage guidelines on three occasions between 2020 and 2023.`,
+      `Yeo is known for his calm, analytical style and his ability to bridge economic policy with on-the-ground social support systems. He has received commendations for integrity and cross-sector collaboration.`,
       ``,
-      `Marcus entered politics in 2024. His campaign focuses on reducing the civil service headcount, implementing corporate tax cuts, and enforcing domestic hiring preferences.`,
-      `Campaign slogan: “Order. Growth. Pride.”`,
-    ].join("\n"),
+      `His campaign focuses on supporting SMEs, aging population strategies, and education equity. Endorsed by professional associations, public policy think tanks, and eldercare networks.`,
+      `Campaign slogan: “Stability, Opportunity, Dignity.”`,
+    ].join("\n[INDEX:1]"),
   ];
 };
