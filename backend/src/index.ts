@@ -1,7 +1,5 @@
-import express, { Request, Response, NextFunction } from "express";
-import { pollConstituencyResultMulti } from "./services/election-service/simulateVote";
-import { getCandidates } from "./services/candidate-service/candidateService";
-import { singaporeDemographic } from "./game-data/presets";
+import express from "express";
+import { generateVoter } from "./services/demographic-service/demographicService";
 
 const app = express();
 const PORT = 3001;
@@ -19,11 +17,26 @@ const PORT = 3001;
 
 app.use(express.json());
 
-app.get("/simulate", async (_req, res) => {
-  const result = await pollConstituencyResultMulti(
-    singaporeDemographic,
-    getCandidates()
-  );
+app.get("/generate_voter", async (_req, res) => {
+  const { age, incomePercentile, politicalAwareness } = _req.query;
+
+  if (
+    typeof age !== "string" ||
+    typeof incomePercentile !== "string" ||
+    typeof politicalAwareness !== "string"
+  ) {
+    throw new Error(
+      "Invalid input: age, incomePercentile, and politicalAwareness must be strings"
+    );
+  }
+
+  const result = await generateVoter({
+    age: Number(age),
+    incomePercentile: Number(incomePercentile),
+    politicalAwareness: Number(politicalAwareness),
+  });
+
+  console.log(result);
   res.send(result);
 });
 

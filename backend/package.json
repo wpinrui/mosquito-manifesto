@@ -14,12 +14,14 @@
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.12",
+    "@types/papaparse": "^5.3.16",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "openai": "^4.97.0"
+    "openai": "^4.97.0",
+    "papaparse": "^5.5.2"
   }
 }
