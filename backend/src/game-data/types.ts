@@ -10,3 +10,4 @@ export interface Person {
   hometownId: string;
   eventLog: string;
 }
+  

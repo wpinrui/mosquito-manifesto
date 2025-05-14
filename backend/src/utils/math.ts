@@ -17,10 +17,6 @@ export function boundedSample(mean: number, std: number): number {
   return Math.max(0, Math.min(1, value)); // clamp to [0, 1]
 }
 
-export function sigmoid(x: number): number {
-  return 1 / (1 + Math.exp(-x));
-}
-
 export function normalCDF(x: number, mean: number, std: number): number {
   const z = (x - mean) / std;
   return 0.5 * (1 + erf(z / Math.SQRT2));
