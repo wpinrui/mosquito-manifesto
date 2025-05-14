@@ -24,3 +24,15 @@ export interface BasicDemographic {
   incomeDistribution: Distribution;
   politicalAwarenessDistribution: Distribution;
 }
+
+export type Direction = "asc" | "desc" | "flat";
+
+export type PillarStats = {
+  mean: number;
+  std: number;
+  directions: {
+    age: Direction;
+    income: Direction;
+    awareness: Direction;
+  };
+};

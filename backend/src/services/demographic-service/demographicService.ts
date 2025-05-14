@@ -1,62 +1,12 @@
-import { normalCDF, boundedSample } from "../../utils/math";
-import { BasicDemographic, BasicVoter, DerivedVoter } from "./types";
-
-type Direction = "asc" | "desc" | "flat";
-
-type PillarStats = {
-  mean: number;
-  std: number;
-  directions: {
-    age: Direction;
-    income: Direction;
-    awareness: Direction;
-  };
-};
-
-const basicDistribution: BasicDemographic = {
-  ageDistribution: {
-    mean: 46,
-    std: 14,
-  },
-  incomeDistribution: {
-    mean: 5000,
-    std: 2000,
-  },
-  politicalAwarenessDistribution: {
-    mean: 0.4,
-    std: 0.3,
-  },
-};
-
-const pillarStats: Record<string, PillarStats> = {
-  socialism: {
-    mean: 0.55,
-    std: 0.15,
-    directions: {
-      age: "asc",
-      income: "desc",
-      awareness: "asc",
-    },
-  },
-  liberalism: {
-    mean: 0.45,
-    std: 0.1,
-    directions: {
-      age: "desc",
-      income: "flat",
-      awareness: "asc",
-    },
-  },
-  incumbencyBias: {
-    mean: 0.35,
-    std: 0.5,
-    directions: {
-      age: "asc",
-      income: "asc",
-      awareness: "flat",
-    },
-  },
-};
+import { sampleSingaporeDistribution } from "../../game-data/presets";
+import { normalCDF, boundedSample, sampleNormal } from "../../utils/math";
+import {
+  BasicDemographic,
+  BasicVoter,
+  DerivedVoter,
+  Direction,
+  PillarStats,
+} from "./types";
 
 function interpolate(
   value: number,
@@ -85,9 +35,10 @@ function computePercentileMean(
   agePercentile: number,
   incomePercentile: number,
   awarenessPercentile: number,
-  pillar: keyof typeof pillarStats
+  ideologyDistributions: Record<string, PillarStats>,
+  pillar: keyof typeof ideologyDistributions
 ): number {
-  const { mean, std, directions } = pillarStats[pillar];
+  const { mean, std, directions } = ideologyDistributions[pillar];
 
   const ageComponent = interpolate(agePercentile, mean, std, directions.age);
   const incomeComponent = interpolate(
@@ -107,17 +58,17 @@ function computePercentileMean(
 }
 
 export function generateVoter(): BasicVoter {
-  const age = boundedSample(
-    basicDistribution.ageDistribution.mean,
-    basicDistribution.ageDistribution.std
+  const age = sampleNormal(
+    sampleSingaporeDistribution.ageDistribution.mean,
+    sampleSingaporeDistribution.ageDistribution.std
   );
-  const income = boundedSample(
-    basicDistribution.incomeDistribution.mean,
-    basicDistribution.incomeDistribution.std
+  const income = sampleNormal(
+    sampleSingaporeDistribution.incomeDistribution.mean,
+    sampleSingaporeDistribution.incomeDistribution.std
   );
-  const politicalAwareness = boundedSample(
-    basicDistribution.politicalAwarenessDistribution.mean,
-    basicDistribution.politicalAwarenessDistribution.std
+  const politicalAwareness = sampleNormal(
+    sampleSingaporeDistribution.politicalAwarenessDistribution.mean,
+    sampleSingaporeDistribution.politicalAwarenessDistribution.std
   );
   return {
     age,
@@ -126,7 +77,11 @@ export function generateVoter(): BasicVoter {
   };
 }
 
-export function generateDerivedVoter(voter: BasicVoter): DerivedVoter {
+export function generateDerivedVoter(
+  voter: BasicVoter,
+  basicDistribution: BasicDemographic,
+  pillarStats: Record<string, PillarStats>
+): DerivedVoter {
   const { age, income, politicalAwareness } = voter;
 
   const agePercentile = normalCDF(
@@ -149,18 +104,21 @@ export function generateDerivedVoter(voter: BasicVoter): DerivedVoter {
     agePercentile,
     incomePercentile,
     politicalAwarenessPercentile,
+    pillarStats,
     "socialism"
   );
   const liberalismMean = computePercentileMean(
     agePercentile,
     incomePercentile,
     politicalAwarenessPercentile,
+    pillarStats,
     "liberalism"
   );
   const incumbencyMean = computePercentileMean(
     agePercentile,
     incomePercentile,
     politicalAwarenessPercentile,
+    pillarStats,
     "incumbencyBias"
   );
 
@@ -180,35 +138,3 @@ export function generateDerivedVoter(voter: BasicVoter): DerivedVoter {
     incumbencyBias,
   };
 }
-
-// === DEMO OUTPUT ===
-const presetAges = [0.1, 0.25, 0.5, 0.75, 0.9];
-const presetIncomes = [0.1, 0.25, 0.5, 0.75, 0.9];
-const presetAwareness = [0.1, 0.25, 0.5, 0.75, 0.9];
-
-console.log("=== MEAN SCORES BY PERCENTILES ===");
-for (const key in pillarStats) {
-  console.log(`\n=== Target: ${key} ===`);
-
-  for (const awareness of presetAwareness) {
-    console.log(`\n--- Political Awareness: ${awareness} ---`);
-    console.log("AgePct\tIncomePct\tMean");
-
-    for (const age of presetAges) {
-      for (const income of presetIncomes) {
-        const mean = computePercentileMean(
-          age,
-          income,
-          awareness,
-          key as keyof typeof pillarStats
-        );
-        console.log(
-          `${age.toFixed(2)}\t${income.toFixed(2)}\t\t${mean.toFixed(4)}`
-        );
-      }
-    }
-  }
-}
-console.log("\n=== END ===");
-
-export const hello = "Hello from the demographic service!";
