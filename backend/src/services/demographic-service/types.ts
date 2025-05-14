@@ -1,7 +1,7 @@
 export type BasicVoter = {
-  // independent variables
+  // independent variables (raw values)
   age: number;
-  incomePercentile: number;
+  income: number;
   politicalAwareness: number;
 };
 
@@ -17,4 +17,10 @@ export type DerivedVoter = {
 export interface Distribution {
   mean: number;
   std: number;
+}
+
+export interface BasicDemographic {
+  ageDistribution: Distribution;
+  incomeDistribution: Distribution;
+  politicalAwarenessDistribution: Distribution;
 }

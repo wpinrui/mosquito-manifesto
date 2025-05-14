@@ -1,8 +1,13 @@
 import express from "express";
-import { generateVoter } from "./services/demographic-service/demographicService";
+import {
+  generateDerivedVoter,
+  generateVoter,
+  hello,
+} from "./services/demographic-service/demographicService";
 
 const app = express();
 const PORT = 3001;
+console.log(hello);
 
 // app.use((req: Request, res: Response, next: NextFunction) => {
 //   console.log(
@@ -18,26 +23,11 @@ const PORT = 3001;
 app.use(express.json());
 
 app.get("/generate_voter", async (_req, res) => {
-  const { age, incomePercentile, politicalAwareness } = _req.query;
-
-  if (
-    typeof age !== "string" ||
-    typeof incomePercentile !== "string" ||
-    typeof politicalAwareness !== "string"
-  ) {
-    throw new Error(
-      "Invalid input: age, incomePercentile, and politicalAwareness must be strings"
-    );
-  }
-
-  const result = await generateVoter({
-    age: Number(age),
-    incomePercentile: Number(incomePercentile),
-    politicalAwareness: Number(politicalAwareness),
-  });
-
-  console.log(result);
-  res.send(result);
+  const voter = generateVoter();
+  console.log(voter);
+  const derivedVoter = generateDerivedVoter(voter);
+  console.log(derivedVoter);
+  res.send(derivedVoter);
 });
 
 app.listen(PORT, () => {
