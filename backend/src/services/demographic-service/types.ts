@@ -26,8 +26,8 @@ export interface BasicDemographic {
 }
 
 export enum Direction {
-  Ascending = "ascending",
-  Descending = "descending",
+  Ascending = "asc",
+  Descending = "desc",
   Flat = "flat",
 }
 
