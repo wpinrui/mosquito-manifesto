@@ -1,0 +1,4 @@
+name,mean,std,ageDirection,incomeDirection,awarenessDirection
+socialism,0.55,0.15,asc,desc,asc
+liberalism,0.45,0.1,desc,flat,asc
+incumbencyBias,0.35,0.5,asc,asc,flat
