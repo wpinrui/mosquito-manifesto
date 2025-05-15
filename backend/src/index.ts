@@ -4,8 +4,8 @@ import {
   generateVoter,
 } from "./services/demographic-service/demographicService";
 import {
-  ideologyDistributions,
-  sampleSingaporeDistribution,
+  getIdeologyDistributions,
+  getSampleSingaporeDistribution,
 } from "./game-data/presets";
 import { initializeGameData } from "./game-data/initial/initialiseGameData";
 
@@ -21,8 +21,8 @@ app.get("/generate_voter", async (_req, res) => {
   console.log(voter);
   const derivedVoter = generateDerivedVoter(
     voter,
-    sampleSingaporeDistribution,
-    ideologyDistributions
+    getSampleSingaporeDistribution(),
+    getIdeologyDistributions()
   );
   console.log(derivedVoter);
   res.send(derivedVoter);

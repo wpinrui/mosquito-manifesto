@@ -4,7 +4,8 @@ import {
 } from "../services/demographic-service/types";
 import { loadDemographic, loadIdeology } from "./loader";
 
-export const sampleSingaporeDistribution: BasicDemographic = loadDemographic();
+export const getSampleSingaporeDistribution = (): BasicDemographic =>
+  loadDemographic();
 
-export const ideologyDistributions: Record<string, PillarStats> =
+export const getIdeologyDistributions = (): Record<string, PillarStats> =>
   loadIdeology();

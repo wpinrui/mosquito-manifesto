@@ -1,4 +1,4 @@
-import { sampleSingaporeDistribution } from "../../game-data/presets";
+import { getSampleSingaporeDistribution } from "../../game-data/presets";
 import {
   INTERPOLATE_VALUE_MAX,
   INTERPOLATE_VALUE_MID,
@@ -67,6 +67,7 @@ function computePercentileMean(
 }
 
 export function generateVoter(): BasicVoter {
+  const sampleSingaporeDistribution = getSampleSingaporeDistribution();
   const age = sampleNormal(
     sampleSingaporeDistribution.ageDistribution.mean,
     sampleSingaporeDistribution.ageDistribution.std
