@@ -1,8 +1,8 @@
 id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
-1,Bedok Reservoir–Punggol,1,31136,1,-712,-0.2
-2,Eunos,1,30545,-2,-622,-0.06
-3,Kaki Bukit,1,25274,5,796,-0.08
-4,Paya Lebar,1,30286,2,513,-0.13
+1,Bedok Reservoir–Punggol,1,31136,1,-712,0.1
+2,Eunos,1,30545,-2,-622,0.06
+3,Kaki Bukit,1,25274,5,796,0.08
+4,Paya Lebar,1,30286,4,513,0.13
 5,Serangoon,1,27035,-1,-770,0.01
 6,Ang Mo Kio–Hougang,2,29775,1,17,-0.01
 7,Buangkok–Fernvale,2,36010,4,-960,0.08
@@ -10,11 +10,11 @@ id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
 9,Seletar–Serangoon,2,32874,1,-866,-0.1
 10,Teck Ghee,2,28902,5,-800,-0.13
 11,Bishan East–Sin Ming,3,25262,5,863,-0.11
-12,Toa Payoh Central,3,22421,2,-221,0.02
-13,Toa Payoh East,3,24259,-1,-71,-0.04
+12,Toa Payoh Central,3,22421,2,-221,0.08
+13,Toa Payoh East,3,24259,3,-300,-0.04
 14,Toa Payoh West–Thomson,3,26737,-2,56,-0.17
 15,Brickland,4,21156,2,71,-0.1
-16,Chua Chu Kang,4,25368,2,-498,-0.1
+16,Chua Chu Kang,4,25368,2,-300,-0.05
 17,Keat Hong,4,25507,-3,-594,0.08
 18,Tengah,4,21481,0,597,0.08
 19,Bedok,5,30622,-1,751,-0.14
@@ -22,12 +22,12 @@ id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
 21,Fengshan–Siglap,5,28817,2,-902,-0.09
 22,Joo Chiat,5,31322,0,-317,0.19
 23,Kampong Chai Chee,5,31612,-4,895,-0.04
-24,Bukit Timah,6,30621,-1,-275,-0.19
+24,Bukit Timah,6,30621,-1,800,-0.19
 25,Cashew,6,31188,-5,570,-0.06
 26,Ulu Pandan,6,32854,4,-40,0.05
 27,Zhenghua,6,28506,0,762,0.07
 28,Kampong Glam,7,25552,3,-388,0.01
-29,Kolam Ayer,7,25065,-5,966,-0.02
+29,Kolam Ayer,7,25065,-5,966,0.06
 30,Kreta Ayer–Kim Seng,7,28379,5,485,0.02
 31,Whampoa,7,27331,5,-358,0.04
 32,Bukit Batok,8,30068,4,792,-0.17
@@ -39,7 +39,7 @@ id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
 38,Geylang Serai,9,27992,-1,-130,-0.04
 39,Kembangan,9,24840,-3,-206,0.13
 40,MacPherson,9,29197,1,-608,0.12
-41,Marine Parade,9,24069,-1,-794,-0.14
+41,Marine Parade,9,24069,4,500,0.1
 42,Limbang,10,27319,3,38,0.0
 43,Marsiling,10,28158,1,881,0.08
 44,Woodgrove,10,32120,-4,577,0.14
@@ -48,19 +48,19 @@ id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
 47,Nee Soon Central,11,31620,-4,714,0.08
 48,Nee Soon East,11,29838,4,598,0.12
 49,Nee Soon Link,11,27600,3,-137,-0.06
-50,Nee Soon South,11,33081,4,-258,-0.16
+50,Nee Soon South,11,33081,4,-200,-0.05
 51,Changi,12,23909,-1,264,0.18
 52,Pasir Ris Central,12,23385,-4,-437,-0.04
 53,Pasir Ris East,12,26535,-2,20,0.01
 54,Pasir Ris West,12,26877,1,-905,0.14
-55,Punggol Coast,13,31983,2,923,0.07
-56,Punggol Northshore,13,30813,-3,757,0.09
+55,Punggol Coast,13,31983,-2,923,0.07
+56,Punggol Northshore,13,30813,-3,757,0.03
 57,Punggol Shore,13,31242,-5,-516,-0.12
 58,Punggol West,13,29740,-2,430,0.02
 59,Admiralty,14,27920,-4,-770,0.08
 60,Canberra,14,28701,2,-252,-0.11
 61,Naval Base,14,26605,-2,678,-0.13
-62,Sembawang Central,14,26172,-4,194,0.19
+62,Sembawang Central,14,26172,-4,-100,0.19
 63,Woodlands,14,24705,0,-460,0.01
 64,Anchorvale,15,28779,0,59,-0.1
 65,Buangkok,15,31911,4,-476,0.2
@@ -81,17 +81,17 @@ id,name,constituency_id,electorate,age_delta,income_delta,awareness_delta
 80,Jurong Spring–Gek Poh,18,33353,2,51,0.03
 81,Nanyang,18,29510,4,643,-0.05
 82,Taman Jurong,18,33558,3,579,0.18
-83,Bukit Gombak,19,26418,3,363,0.19
-84,Bukit Panjang,19,33594,-5,821,-0.09
-85,Hougang,20,29466,3,981,-0.08
+83,Bukit Gombak,19,26418,3,363,0.08
+84,Bukit Panjang,19,33594,1,-100,-0.09
+85,Hougang,20,29466,3,-300,0.2
 86,Jalan Kayu,21,29620,1,354,-0.01
 87,Jurong Central,22,29669,3,663,-0.02
 88,Kebun Baru,23,22251,2,529,0.2
-89,Marymount,24,23264,-5,371,-0.13
+89,Marymount,24,23264,-2,300,-0.13
 90,Mountbatten,25,22831,2,496,-0.19
 91,Pioneer,26,25195,2,254,-0.0
-92,Potong Pasir,27,30959,5,-811,-0.13
-93,Queenstown,28,28905,-3,248,-0.05
+92,Potong Pasir,27,30959,3,-500,0.05
+93,Queenstown,28,28905,2,600,-0.05
 94,Radin Mas,29,25559,-5,408,0.1
 95,Sembawang West,30,24192,2,400,0.09
 96,Tampines Changkat,31,24032,-3,306,-0.08

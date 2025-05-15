@@ -7,6 +7,9 @@ import {
   ideologyDistributions,
   sampleSingaporeDistribution,
 } from "./game-data/presets";
+import { initializeGameData } from "./game-data/initial/initialiseGameData";
+
+initializeGameData();
 
 const app = express();
 const PORT = 3001;
