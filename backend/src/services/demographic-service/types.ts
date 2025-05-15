@@ -25,7 +25,11 @@ export interface BasicDemographic {
   politicalAwarenessDistribution: Distribution;
 }
 
-export type Direction = "asc" | "desc" | "flat";
+export enum Direction {
+  Ascending = "ascending",
+  Descending = "descending",
+  Flat = "flat",
+}
 
 export type PillarStats = {
   mean: number;

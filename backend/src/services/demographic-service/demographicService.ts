@@ -1,4 +1,9 @@
 import { sampleSingaporeDistribution } from "../../game-data/presets";
+import {
+  INTERPOLATE_VALUE_MAX,
+  INTERPOLATE_VALUE_MID,
+  INTERPOLATE_VALUE_MIN,
+} from "../../utils/constants";
 import { normalCDF, boundedSample, sampleNormal } from "../../utils/math";
 import {
   BasicDemographic,
@@ -14,19 +19,23 @@ function interpolate(
   std: number,
   direction: Direction
 ): number {
-  if (direction === "flat") return mean;
+  if (direction === Direction.Flat) return mean;
 
-  const slope = direction === "asc" ? 1 : -1;
+  const slope = direction === Direction.Ascending ? 1 : -1;
 
-  if (value <= 0.1) return mean - slope * std;
-  if (value >= 0.9) return mean + slope * std;
-  if (value === 0.5) return mean;
+  if (value <= INTERPOLATE_VALUE_MIN) return mean - slope * std;
+  if (value >= INTERPOLATE_VALUE_MAX) return mean + slope * std;
+  if (value === INTERPOLATE_VALUE_MID) return mean;
 
-  if (value < 0.5) {
-    const t = (value - 0.1) / (0.5 - 0.1);
+  if (value < INTERPOLATE_VALUE_MID) {
+    const t =
+      (value - INTERPOLATE_VALUE_MIN) /
+      (INTERPOLATE_VALUE_MID - INTERPOLATE_VALUE_MIN);
     return (1 - t) * (mean - slope * std) + t * mean;
   } else {
-    const t = (value - 0.5) / (0.9 - 0.5);
+    const t =
+      (value - INTERPOLATE_VALUE_MID) /
+      (INTERPOLATE_VALUE_MAX - INTERPOLATE_VALUE_MID);
     return (1 - t) * mean + t * (mean + slope * std);
   }
 }

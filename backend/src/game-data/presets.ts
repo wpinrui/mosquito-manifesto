@@ -1,5 +1,6 @@
 import {
   BasicDemographic,
+  Direction,
   PillarStats,
 } from "../services/demographic-service/types";
 
@@ -23,27 +24,27 @@ export const ideologyDistributions: Record<string, PillarStats> = {
     mean: 0.55,
     std: 0.15,
     directions: {
-      age: "asc",
-      income: "desc",
-      awareness: "asc",
+      age: Direction.Ascending,
+      income: Direction.Descending,
+      awareness: Direction.Ascending,
     },
   },
   liberalism: {
     mean: 0.45,
     std: 0.1,
     directions: {
-      age: "desc",
-      income: "flat",
-      awareness: "asc",
+      age: Direction.Descending,
+      income: Direction.Flat,
+      awareness: Direction.Ascending,
     },
   },
   incumbencyBias: {
     mean: 0.35,
     std: 0.5,
     directions: {
-      age: "asc",
-      income: "asc",
-      awareness: "flat",
+      age: Direction.Ascending,
+      income: Direction.Ascending,
+      awareness: Direction.Flat,
     },
   },
 };
