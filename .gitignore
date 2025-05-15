@@ -4,4 +4,3 @@ dist/
 .vscode/
 .idea/
 .DS_Store
-backend/src/game-data/*.csv
