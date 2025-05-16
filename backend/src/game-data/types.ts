@@ -10,4 +10,18 @@ export interface Person {
   hometownId: string;
   eventLog: string;
 }
-  
+
+export type Event = {
+  date: string; // ISO 8601 format
+  baseSignificance: number;
+  currentSignificance: number; // factoring date decay
+  partyImpact: Record<number, number>; // key is the ID
+  candidateImpact: Record<number, number>; // key is the ID
+  neutralDescription: string;
+  mainstreamDescription: string;
+  alternativeDescription: string;
+  conservatismMultiplier: number;
+  liberalismMultiplier: number;
+  socialismMultiplier: number;
+  capitalismMultiplier: number;
+};
